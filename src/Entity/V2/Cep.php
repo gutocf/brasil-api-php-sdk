@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V2;
 
-use Gutocf\BrasilAPI\Entity\AbstractEntity;
+use Gutocf\BrasilAPI\Entity\V2\Cep\Location;
+use Spatie\DataTransferObject\FlexibleDataTransferObject;
 
-class Cep extends AbstractEntity
+class Cep extends FlexibleDataTransferObject
 {
     public ?string $cep;
     public ?string $state;
@@ -15,15 +16,4 @@ class Cep extends AbstractEntity
     public ?string $street;
     public ?string $service;
     public ?Location $location;
-
-    public function setData(array $data): void
-    {
-        foreach ($data as $property => $value) {
-            if (property_exists($this, $property)) {
-                $this->$property = $property === 'location' ?
-                    new Location($value) :
-                    $value;
-            }
-        }
-    }
 }

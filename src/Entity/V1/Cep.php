@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V1;
 
-use Gutocf\BrasilAPI\Entity\AbstractEntity;
+use Spatie\DataTransferObject\FlexibleDataTransferObject;
 
-class Cep extends AbstractEntity
+class Cep extends FlexibleDataTransferObject
 {
+    protected bool $ignoreMissing = true;
     public ?string $cep;
     public ?string $state;
     public ?string $city;

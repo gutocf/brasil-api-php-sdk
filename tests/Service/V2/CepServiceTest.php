@@ -6,7 +6,8 @@ namespace Gutocf\BrasilAPI\Tests\Service\V2;
 
 use Gutocf\BrasilAPI\Adapter\Adapter;
 use Gutocf\BrasilAPI\Entity\V2\Cep;
-use Gutocf\BrasilAPI\Entity\V2\Location;
+use Gutocf\BrasilAPI\Entity\V2\Cep\Coordinates;
+use Gutocf\BrasilAPI\Entity\V2\Cep\Location;
 use Gutocf\BrasilAPI\Exception\NotFoundException;
 use Gutocf\BrasilAPI\Service\V2\CepService;
 use GuzzleHttp\Client;
@@ -46,8 +47,7 @@ class CepServiceTest extends TestCase
         $this->assertEquals($cep->street, $data['street']);
         $this->assertEquals($cep->service, $data['service']);
         $this->assertInstanceOf(Location::class, $cep->location);
-        $this->assertIsFloat($cep->location->latitude);
-        $this->assertIsFloat($cep->location->longitude);
+        $this->assertInstanceOf(Coordinates::class, $cep->location->coordinates);
     }
 
     public function testGetInvalid(): void

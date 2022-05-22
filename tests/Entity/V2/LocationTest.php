@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Tests\Entity;
 
-use Gutocf\BrasilAPI\Entity\V2\Location;
+use Gutocf\BrasilAPI\Entity\V2\Cep\Coordinates;
+use Gutocf\BrasilAPI\Entity\V2\Cep\Location;
 use PHPUnit\Framework\TestCase;
 
 class LocationTest extends TestCase
@@ -14,15 +15,14 @@ class LocationTest extends TestCase
         $data = [
             'type' => 'Point',
             'coordinates' => [
+                'latitude' => '-26.9244749',
                 'longitude' => '-49.0629788',
-                'latitude' => '-26.9244749'
             ],
             'invalid' => 'invalid',
         ];
         $location = new Location($data);
         $this->assertEquals($location->type, $data['type']);
-        $this->assertEquals($location->latitude, $data['coordinates']['latitude']);
-        $this->assertEquals($location->longitude, $data['coordinates']['longitude']);
+        $this->assertInstanceOf(Coordinates::class, $location->coordinates);
         $this->assertObjectNotHasAttribute('invalid', $location);
     }
 
@@ -31,8 +31,7 @@ class LocationTest extends TestCase
         $data = [];
         $location = new Location($data);
         $this->assertNull($location->type);
-        $this->assertNull($location->latitude);
-        $this->assertNull($location->longitude);
+        $this->assertNull($location->coordinates);
         $this->assertObjectNotHasAttribute('invalid', $location);
     }
 }

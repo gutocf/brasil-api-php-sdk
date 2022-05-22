@@ -11,8 +11,14 @@
     </php>
     <!-- Add any additional test suites you want to run here -->
     <testsuites>
-        <testsuite name="BrasilAPI">
+        <testsuite name="All">
             <directory>tests/</directory>
+        </testsuite>
+        <testsuite name="Entities">
+            <directory>tests/Entity/</directory>
+        </testsuite>
+        <testsuite name="Services">
+            <directory>tests/Service/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
