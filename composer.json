@@ -11,7 +11,7 @@
         "sdk"
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.4",
         "guzzlehttp/guzzle": "^7.4"
     },
     "require-dev": {

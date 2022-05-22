@@ -8,7 +8,10 @@ use Gutocf\BrasilAPI\Adapter\AdapterInterface;
 
 abstract class AbstractService
 {
-    public function __construct(protected AdapterInterface $adapter)
+    protected AdapterInterface $adapter;
+
+    public function __construct(AdapterInterface $adapter)
     {
+        $this->adapter = $adapter;
     }
 }

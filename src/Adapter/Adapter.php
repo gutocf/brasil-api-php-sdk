@@ -16,8 +16,11 @@ class Adapter implements AdapterInterface
 
     protected const HOST = 'brasilapi.com.br';
 
-    public function __construct(private ClientInterface $client)
+    private ClientInterface $client;
+
+    public function __construct(ClientInterface $client)
     {
+        $this->client = $client;
     }
 
     /**

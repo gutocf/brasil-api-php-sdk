@@ -20,16 +20,14 @@ abstract class AbstractEntity
      * Sets entity data.
      *
      * @param mixed[] $data Associative array of entity data.
-     * @return static
+     * @return void
      */
-    public function setData(array $data): static
+    public function setData(array $data): void
     {
         foreach ($data as $property => $value) {
             if (property_exists($this, $property)) {
                 $this->$property = $value;
             }
         }
-
-        return $this;
     }
 }
