@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Adapter;
 
-use Psr\Http\Message\ResponseInterface;
-
 interface AdapterInterface
 {
     /**
@@ -13,8 +11,7 @@ interface AdapterInterface
      *
      * @param string $path
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException;
-     * @return \Psr\Http\Message\ResponseInterface;
-     *
+     * @return mixed[] Data returned by the API.
      */
-    public function get(string $path): ResponseInterface;
+    public function get(string $path): array;
 }

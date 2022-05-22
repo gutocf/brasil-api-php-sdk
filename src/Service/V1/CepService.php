@@ -17,8 +17,7 @@ class CepService extends AbstractService
      */
     public function get(string $cep): Cep
     {
-        $response = $this->adapter->get(sprintf('/api/cep/v1/%s', $cep));
-        $data = json_decode($response->getBody()->getContents(), true);
+        $data = $this->adapter->get(sprintf('/api/cep/v1/%s', $cep));
 
         return new Cep($data);
     }
