@@ -15,10 +15,10 @@ class ServiceFactoryTest extends TestCase
 {
     public function testGetService(): void
     {
-        $service = ServiceFactory::get(Service::CEP(), Version::V1());
+        $service = ServiceFactory::get(Service::CEP_V1());
         $this->assertInstanceOf(V1CepService::class, $service);
 
-        $service = ServiceFactory::get(Service::CEP(), Version::V2());
+        $service = ServiceFactory::get(Service::CEP_V2());
         $this->assertInstanceOf(V2CepService::class, $service);
     }
 }
