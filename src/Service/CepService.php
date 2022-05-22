@@ -8,7 +8,6 @@ use Gutocf\BrasilAPI\Entity\Cep;
 
 class CepService extends AbstractService
 {
-
     /**
      * Search for a Cep.
      *

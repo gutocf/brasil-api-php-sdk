@@ -9,7 +9,6 @@ use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractHttpException extends Exception
 {
-
     public function __construct(ResponseInterface $response, int $code = 500)
     {
         $data = json_decode($response->getBody()->getContents(), true);
