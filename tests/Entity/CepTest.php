@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class CepTest extends TestCase
 {
 
-    public function testProperties()
+    public function testProperties(): void
     {
         $data = [
             'cep' => '89010025',

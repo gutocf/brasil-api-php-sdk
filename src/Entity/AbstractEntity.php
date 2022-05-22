@@ -6,6 +6,11 @@ namespace Gutocf\BrasilAPI\Entity;
 
 abstract class AbstractEntity
 {
+    /**
+     * Constructor.
+     *
+     * @param mixed[] $data Associative array of entity data.
+     */
     public function __construct(array $data)
     {
         $this->setData($data);
@@ -14,7 +19,7 @@ abstract class AbstractEntity
     /**
      * Sets entity data.
      *
-     * @param mixed[] $data Associative array of data.
+     * @param mixed[] $data Associative array of entity data.
      * @return static
      */
     public function setData(array $data): static

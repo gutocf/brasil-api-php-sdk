@@ -27,7 +27,7 @@ class CepServiceTest extends TestCase
             'street' => 'Rua Doutor Luiz de Freitas Melro',
             'service' => 'viacep',
         ];
-        $mock = new MockHandler([new Response(200, [], json_encode($data))]);
+        $mock = new MockHandler([new Response(200, [], strval(json_encode($data)))]);
         $handlerStack = HandlerStack::create($mock);
         $cepService = new CepService(new Adapter(new Client(['handler' => $handlerStack])));
         $cep = $cepService->get('89010025');
@@ -40,7 +40,7 @@ class CepServiceTest extends TestCase
         $this->assertEquals($cep->service, $data['service']);
     }
 
-    public function testGetInvalid()
+    public function testGetInvalid(): void
     {
         $mock = new MockHandler([new Response(404)]);
         $handlerStack = HandlerStack::create($mock);
