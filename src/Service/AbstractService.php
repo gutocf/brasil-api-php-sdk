@@ -6,7 +6,7 @@ namespace Gutocf\BrasilAPI\Service;
 
 use Gutocf\BrasilAPI\Adapter\AdapterInterface;
 
-abstract class AbstractService
+abstract class AbstractService implements ServiceInterface
 {
     protected AdapterInterface $adapter;
 
