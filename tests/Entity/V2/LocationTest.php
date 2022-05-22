@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class LocationTest extends TestCase
 {
+
     public function testProperties(): void
     {
         $data = [
@@ -23,6 +24,16 @@ class LocationTest extends TestCase
         $this->assertEquals($location->type, $data['type']);
         $this->assertEquals($location->latitude, $data['coordinates']['latitude']);
         $this->assertEquals($location->longitude, $data['coordinates']['longitude']);
+        $this->assertObjectNotHasAttribute('invalid', $location);
+    }
+
+    public function testPropertiesEmpty(): void
+    {
+        $data = [];
+        $location = new Location($data);
+        $this->assertNull($location->type);
+        $this->assertNull($location->latitude);
+        $this->assertNull($location->longitude);
         $this->assertObjectNotHasAttribute('invalid', $location);
     }
 }

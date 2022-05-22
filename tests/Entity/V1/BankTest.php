@@ -25,4 +25,17 @@ class BankTest extends TestCase
         $this->assertEquals($bank->fullName, $data['fullName']);
         $this->assertObjectNotHasAttribute('invalid', $bank);
     }
+
+    public function testPropertiesEmpty(): void
+    {
+        $data = [
+            'invalid' => 'invalid',
+        ];
+        $bank = new Bank($data);
+        $this->assertNull($bank->ispb);
+        $this->assertNull($bank->name);
+        $this->assertNull($bank->code);
+        $this->assertNull($bank->fullName);
+        $this->assertObjectNotHasAttribute('invalid', $bank);
+    }
 }

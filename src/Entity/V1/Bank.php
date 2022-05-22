@@ -17,9 +17,7 @@ class Bank extends AbstractEntity
     {
         $this->ispb = $data['ispb'] ?? null;
         $this->name = $data['name'] ?? null;
-        $this->code = $data['code'] ?
-            intval($data['code']) :
-            null;
+        $this->code = isset($data['code']) ? intval($data['code']) : null;
         $this->fullName = $data['fullName'] ?? null;
     }
 }

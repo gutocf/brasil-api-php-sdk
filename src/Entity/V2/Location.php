@@ -15,10 +15,10 @@ class Location extends AbstractEntity
     public function setData(array $data): void
     {
         $this->type = $data['type'] ?? null;
-        $this->latitude = $data['coordinates']['latitude'] ?
+        $this->latitude = isset($data['coordinates']['latitude']) ?
             floatval($data['coordinates']['latitude']) :
             null;
-        $this->longitude = $data['coordinates']['longitude'] ?
+        $this->longitude = isset($data['coordinates']['longitude']) ?
             floatval($data['coordinates']['longitude']) :
             null;
     }
