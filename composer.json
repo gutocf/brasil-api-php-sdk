@@ -1,5 +1,5 @@
 {
-    "name": "gutocf/brasil-api",
+    "name": "gutocf/brasil-api-php-sdk",
     "description": "SDK for BrasilAPI",
     "type": "library",
     "license": "MIT",
@@ -8,6 +8,7 @@
         "brasil",
         "api",
         "brasilapi",
+        "php",
         "sdk"
     ],
     "require": {
