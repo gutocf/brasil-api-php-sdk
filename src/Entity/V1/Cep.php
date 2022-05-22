@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gutocf\BrasilAPI\Entity;
+namespace Gutocf\BrasilAPI\Entity\V1;
+
+use Gutocf\BrasilAPI\Entity\AbstractEntity;
 
 class Cep extends AbstractEntity
 {

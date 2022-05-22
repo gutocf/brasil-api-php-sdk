@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Gutocf\BrasilAPI\Service;
+namespace Gutocf\BrasilAPI\Service\V1;
 
-use Gutocf\BrasilAPI\Entity\Cep;
+use Gutocf\BrasilAPI\Entity\V1\Cep;
+use Gutocf\BrasilAPI\Service\AbstractService;
 
 class CepService extends AbstractService
 {
