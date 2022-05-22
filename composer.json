@@ -30,8 +30,8 @@
         }
     },
     "scripts": {
-        "phpcs": "phpcs --standard=PSR12 --colors -p src/",
-        "phpcbf": "phpcbf --standard=PSR12 --colors -p src/",
+        "phpcs": "phpcs --standard=PSR12 --colors -p src/ tests/",
+        "phpcbf": "phpcbf --standard=PSR12 --colors -p src/ tests/",
         "phpstan": "vendor/bin/phpstan",
         "coverage": "phpunit --colors=always --bootstrap=tests/bootstrap.php --configuration=phpunit.xml --coverage-html=tmp/_reports/coverage/"
     }

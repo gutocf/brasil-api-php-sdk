@@ -16,7 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 class CepServiceTest extends TestCase
 {
-
     public function testGet(): void
     {
         $data = [
