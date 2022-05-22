@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class LocationTest extends TestCase
 {
-
     public function testProperties(): void
     {
         $data = [
