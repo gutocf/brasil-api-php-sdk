@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Gutocf\BrasilAPI\Tests\Service;
 
 use Gutocf\BrasilAPI\Service\Enum\Service;
-use Gutocf\BrasilAPI\Service\Enum\Version;
 use Gutocf\BrasilAPI\Service\ServiceFactory;
 use Gutocf\BrasilAPI\Service\V1\CepService as V1CepService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
