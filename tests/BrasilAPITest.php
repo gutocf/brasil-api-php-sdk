@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Tests\Service;
 
-use Gutocf\BrasilAPI\Service\Enum\Service;
-use Gutocf\BrasilAPI\Service\ServiceFactory;
+use Gutocf\BrasilAPI\BrasilAPI;
 use Gutocf\BrasilAPI\Service\V1\CepService as V1CepService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
 use PHPUnit\Framework\TestCase;
 
-class ServiceFactoryTest extends TestCase
+class BrasilAPITest extends TestCase
 {
-    public function testGetService(): void
+    public function testCepV1(): void
     {
-        $service = ServiceFactory::get(Service::CEP_V1());
+        $service = BrasilAPI::cepV1();
         $this->assertInstanceOf(V1CepService::class, $service);
+    }
 
-        $service = ServiceFactory::get(Service::CEP_V2());
+    public function testCepV2(): void
+    {
+        $service = BrasilAPI::cepV2();
         $this->assertInstanceOf(V2CepService::class, $service);
     }
 }
