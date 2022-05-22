@@ -12,21 +12,28 @@ use PHPUnit\Framework\TestCase;
 
 class BrasilAPITest extends TestCase
 {
+    private BrasilAPI $BrasilAPI;
+
+    public function setUp(): void
+    {
+        $this->BrasilAPI = new BrasilAPI();
+    }
+
     public function testCepV1(): void
     {
-        $service = BrasilAPI::cepV1();
+        $service = $this->BrasilAPI->cepV1();
         $this->assertInstanceOf(V1CepService::class, $service);
     }
 
     public function testCepV2(): void
     {
-        $service = BrasilAPI::cepV2();
+        $service = $this->BrasilAPI->cepV2();
         $this->assertInstanceOf(V2CepService::class, $service);
     }
 
     public function testBanksV1(): void
     {
-        $service = BrasilAPI::banksV1();
+        $service = $this->BrasilAPI->banksV1();
         $this->assertInstanceOf(BanksService::class, $service);
     }
 }

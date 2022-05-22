@@ -5,43 +5,48 @@ declare(strict_types=1);
 namespace Gutocf\BrasilAPI;
 
 use Gutocf\BrasilAPI\Adapter\Adapter;
-use Gutocf\BrasilAPI\Service\V1\BanksService;
+use Gutocf\BrasilAPI\Adapter\AdapterInterface;
+use Gutocf\BrasilAPI\Service\V1\BanksService as V1BanksService;
 use Gutocf\BrasilAPI\Service\V1\CepService as V1CepService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
 use GuzzleHttp\Client;
 
-/**
- * Factory for BrasilAPI services
- */
-abstract class BrasilAPI
+class BrasilAPI
 {
+    private AdapterInterface $Adapter;
+
+    public function __construct()
+    {
+        $this->Adapter = new Adapter(new Client());
+    }
+
     /**
      * Returns a instance of V1 Cep Service.
      *
-     * @return V1CepService
+     * @return \Gutocf\BrasilAPI\Service\V1\CepService
      */
-    public static function cepV1(): V1CepService
+    public function cepV1(): V1CepService
     {
-        return new V1CepService(new Adapter(new Client()));
+        return new V1CepService($this->Adapter);
     }
 
     /**
      * Returns a instance of V2 Cep Service.
      *
-     * @return V2CepService
+     * @return \Gutocf\BrasilAPI\Service\V2\CepService
      */
-    public static function cepV2(): V2CepService
+    public function cepV2(): V2CepService
     {
-        return new V2CepService(new Adapter(new Client()));
+        return new V2CepService($this->Adapter);
     }
 
     /**
      * Returns a instance of banks service.
      *
-     * @return BanksService
+     * @return \Gutocf\BrasilAPI\Service\V1\BanksService
      */
-    public static function banksV1(): BanksService
+    public function banksV1(): V1BanksService
     {
-        return new BanksService(new Adapter(new Client()));
+        return new V1BanksService($this->Adapter);
     }
 }
