@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  testsuite:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ["7.2", "8.0", "8.1"]
+    name: PHP ${{ matrix.php-version }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, intl, pdo_sqlite
+          tools: cs2pr
+          coverage: pcov
+
+      - name: Composer install
+        run: |
+          if [[ ${{ matrix.php-version }} == '8.1' ]]; then
+            composer update --ignore-platform-reqs
+          else
+            composer update
+          fi
+
+      - name: Run PHPUnit
+        run: |
+          vendor/bin/phpunit
+          if [[ ${{ matrix.php-version }} == '7.2' ]]; then
+            export CODECOVERAGE=1
+            vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
+          fi
+
+      - name: Submit code coverage
+        if: matrix.php-version == '7.2'
+        uses: codecov/codecov-action@v1
+
+      - name: Run PHP CodeSniffer
+        run: vendor/bin/phpcs --standard=PSR12 --report=checkstyle src/ tests/ | cs2pr
+
+      - name: Run phpstan
+        if: success() || failure()
+        run: vendor/bin/phpstan.phar analyse --error-format=github
