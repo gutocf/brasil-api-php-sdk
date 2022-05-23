@@ -7,6 +7,7 @@ namespace Gutocf\BrasilAPI\Tests\Service;
 use Gutocf\BrasilAPI\BrasilAPI;
 use Gutocf\BrasilAPI\Service\V1\BanksService;
 use Gutocf\BrasilAPI\Service\V1\CepService as V1CepService;
+use Gutocf\BrasilAPI\Service\V1\HolidaysService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
 use PHPUnit\Framework\TestCase;
 
@@ -35,5 +36,11 @@ class BrasilAPITest extends TestCase
     {
         $service = $this->BrasilAPI->banksV1();
         $this->assertInstanceOf(BanksService::class, $service);
+    }
+
+    public function testHolidaysV1(): void
+    {
+        $service = $this->BrasilAPI->holidaysV1();
+        $this->assertInstanceOf(HolidaysService::class, $service);
     }
 }

@@ -4,26 +4,23 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V2\Cep;
 
-use Spatie\DataTransferObject\FieldValidator;
 use Spatie\DataTransferObject\FlexibleDataTransferObject;
-use Spatie\DataTransferObject\ValueCaster;
 
 class Coordinates extends FlexibleDataTransferObject
 {
     public ?float $latitude;
     public ?float $longitude;
 
-    /**
-     * @param \Spatie\DataTransferObject\ValueCaster $valueCaster
-     * @param \Spatie\DataTransferObject\FieldValidator $fieldValidator
-     * @param mixed $value
-     *
-     * @return mixed
-     */
-    protected function castValue(ValueCaster $valueCaster, FieldValidator $fieldValidator, $value)
+    public function __construct(array $parameters = [])
     {
-        $value = $value ? floatval($value) : null;
+        $parameters['latitude'] = isset($parameters['latitude']) ?
+            floatval($parameters['latitude']) :
+            null;
 
-        return parent::castValue($valueCaster, $fieldValidator, $value);
+        $parameters['longitude'] = isset($parameters['longitude']) ?
+            floatval($parameters['longitude']) :
+            null;
+
+        parent::__construct($parameters);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Adapter;
 
+use Gutocf\BrasilAPI\Exception\InternalServerErrorException;
 use Gutocf\BrasilAPI\Exception\NotFoundException;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Uri;
@@ -57,6 +58,10 @@ abstract class AbstractAdapter implements AdapterInterface
     {
         if ($response->getStatusCode() === 404) {
             throw new NotFoundException($response);
+        }
+
+        if ($response->getStatusCode() === 500) {
+            throw new InternalServerErrorException($response);
         }
     }
 

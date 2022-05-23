@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Gutocf\BrasilAPI\Tests\Entity;
 
 use Gutocf\BrasilAPI\Entity\V2\Cep\Coordinates;
-use Gutocf\BrasilAPI\Entity\V2\Cep\Location;
 use PHPUnit\Framework\TestCase;
 
 class CoordinatesTest extends TestCase

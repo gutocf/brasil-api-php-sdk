@@ -8,6 +8,7 @@ use Gutocf\BrasilAPI\Adapter\Adapter;
 use Gutocf\BrasilAPI\Adapter\AdapterInterface;
 use Gutocf\BrasilAPI\Service\V1\BanksService as V1BanksService;
 use Gutocf\BrasilAPI\Service\V1\CepService as V1CepService;
+use Gutocf\BrasilAPI\Service\V1\HolidaysService as V1HolidayService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
 use GuzzleHttp\Client;
 
@@ -48,5 +49,15 @@ class BrasilAPI
     public function banksV1(): V1BanksService
     {
         return new V1BanksService($this->Adapter);
+    }
+
+    /**
+     * Returns a instance of holidays service.
+     *
+     * @return \Gutocf\BrasilAPI\Service\V1\HolidaysService
+     */
+    public function holidaysV1(): V1HolidayService
+    {
+        return new V1HolidayService($this->Adapter);
     }
 }
