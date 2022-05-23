@@ -64,6 +64,13 @@ $banks = $BrasilAPI->holidaysV1()->getByYear(2022);
 ### CNPJ
 
 ```php
-//Gets information from a CNPJ
+//Gets information about a CNPJ
 $banks = $BrasilAPI->cnpjV1()->get('39729684000100');
+```
+
+### DDD
+
+```php
+//Gets information about a DDD
+$ddd = $BrasilAPI->dddV1()->get(48);
 ```
