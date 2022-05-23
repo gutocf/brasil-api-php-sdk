@@ -29,7 +29,7 @@ use Gutocf\BrasilAPI\BrasilAPI;
 
 $BrasilAPI = new BrasilAPI();
 ```
-After that, you can use the service methods as follows. All services methods return an object or array of objects children of `DataTransferObject` from the [spatie/data-transfer-object](https://github.com/spatie/data-transfer-object/) library.
+After that, you can use the service methods as follows. All services methods returns an object or array of objects children of `DataTransferObject` from the [spatie/data-transfer-object](https://github.com/spatie/data-transfer-object/) library.
 
 ### CEP (V1)
 
