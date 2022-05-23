@@ -20,21 +20,7 @@ class CepServiceTest extends TestCase
 {
     public function testGet(): void
     {
-        $data = [
-            'cep' => '89010025',
-            'state' => 'SC',
-            'city' => 'Blumenau',
-            'neighborhood' => 'Centro',
-            'street' => 'Rua Doutor Luiz de Freitas Melro',
-            'service' => 'correios',
-            'location' => [
-                'type' => 'Point',
-                'coordinates' => [
-                    'longitude' => '-49.0629788',
-                    'latitude' => '-26.9244749'
-                ],
-            ],
-        ];
+        $data = loadFixture('Entity/V2/cep');
         $mock = new MockHandler([new Response(200, [], strval(json_encode($data)))]);
         $handlerStack = HandlerStack::create($mock);
         $cepService = new CepService(new Adapter(new Client(['handler' => $handlerStack])));

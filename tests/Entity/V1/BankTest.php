@@ -11,7 +11,7 @@ class BankTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = loadFixture('Entity/V1/bank.json');
+        $data = loadFixture('Entity/V1/bank');
         $bank = new Bank($data);
         $this->assertEquals($bank->ispb, $data['ispb']);
         $this->assertEquals($bank->name, $data['name']);

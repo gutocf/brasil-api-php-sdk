@@ -13,7 +13,7 @@ class CepTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = loadFixture('Entity/V2/cep.json');
+        $data = loadFixture('Entity/V2/cep');
         $cep = new Cep($data);
         $this->assertEquals($cep->cep, $data['cep']);
         $this->assertEquals($cep->state, $data['state']);

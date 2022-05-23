@@ -8,7 +8,6 @@ use Spatie\DataTransferObject\FlexibleDataTransferObject;
 
 class Cep extends FlexibleDataTransferObject
 {
-    protected bool $ignoreMissing = true;
     public ?string $cep;
     public ?string $state;
     public ?string $city;

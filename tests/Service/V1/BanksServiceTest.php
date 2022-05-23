@@ -18,12 +18,7 @@ class BanksServiceTest extends TestCase
 {
     public function testGet(): void
     {
-        $data = [
-            'ispb' => '00000000',
-            'name' => 'BCO DO BRASIL S.A.',
-            'code' => 1,
-            'fullName' => 'Banco do Brasil S.A.',
-        ];
+        $data =loadFixture('Entity/V1/bank');
         $mock = new MockHandler([new Response(200, [], strval(json_encode($data)))]);
         $handlerStack = HandlerStack::create($mock);
         $bankService = new BanksService(new Adapter(new Client(['handler' => $handlerStack])));

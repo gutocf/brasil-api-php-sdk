@@ -12,7 +12,7 @@ class HolidayTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = loadFixture('Entity/V1/holiday.json');
+        $data = loadFixture('Entity/V1/holiday');
         $holiday = new Holiday($data);
         $this->assertInstanceOf(DateTime::class, $holiday->date);
         $this->assertEquals($holiday->name, $data['name']);

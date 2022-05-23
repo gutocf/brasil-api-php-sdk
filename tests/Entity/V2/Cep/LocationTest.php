@@ -12,7 +12,7 @@ class LocationTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = loadFixture('Entity/V2/Cep/location.json');
+        $data = loadFixture('Entity/V2/Cep/location');
         $location = new Location($data);
         $this->assertEquals($location->type, $data['type']);
         $this->assertInstanceOf(Coordinates::class, $location->coordinates);

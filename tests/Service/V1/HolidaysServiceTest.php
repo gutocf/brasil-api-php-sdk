@@ -20,18 +20,7 @@ class HolidaysServiceTest extends TestCase
 {
     public function testGetByYear(): void
     {
-        $data = [
-            [
-                'date' => '2022-01-01',
-                'name' => 'Confraternização mundial',
-                'type' => 'national',
-            ],
-            [
-                'date' => '2022-03-07',
-                'name' => 'Dia do Fusileiro Naval',
-                'type' => 'national',
-            ],
-        ];
+        $data = loadFixture('Entity/V1/holidays');
         $mock = new MockHandler([new Response(200, [], strval(json_encode($data)))]);
         $handlerStack = HandlerStack::create($mock);
         $holidayService = new HolidaysService(new Adapter(new Client(['handler' => $handlerStack])));

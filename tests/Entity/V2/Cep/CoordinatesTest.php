@@ -11,7 +11,7 @@ class CoordinatesTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = loadFixture('Entity/V2/Cep/coordinates.json');
+        $data = loadFixture('Entity/V2/Cep/coordinates');
         $coordinates = new Coordinates($data);
         $this->assertEquals($coordinates->latitude, floatval($data['latitude']));
         $this->assertEquals($coordinates->longitude, floatval($data['longitude']));
