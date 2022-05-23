@@ -41,7 +41,7 @@ jobs:
           vendor/bin/phpunit
           if [[ ${{ matrix.php-version }} == '7.4' ]]; then
             export CODECOVERAGE=1
-            vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
+            vendor/bin/phpunit --bootstrap=tests/bootstrap.php --coverage-clover=coverage.xml
           fi
 
       - name: Submit code coverage
