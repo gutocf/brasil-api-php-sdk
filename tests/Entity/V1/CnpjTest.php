@@ -12,7 +12,6 @@ use PHPUnit\Framework\TestCase;
 
 class CnpjTest extends TestCase
 {
-
     public function testProperties(): void
     {
         $data = loadFixture('Entity/V1/cnpj');

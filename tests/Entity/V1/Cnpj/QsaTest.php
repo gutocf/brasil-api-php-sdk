@@ -26,6 +26,7 @@ class QsaTest extends TestCase
         $this->assertEquals($qsa->nome_representante_legal, $data['nome_representante_legal']);
         $this->assertEquals($qsa->codigo_qualificacao_socio, $data['codigo_qualificacao_socio']);
         $this->assertEquals($qsa->qualificacao_representante_legal, $data['qualificacao_representante_legal']);
+        //phpcs:ignore Generic.Files.LineLength
         $this->assertEquals($qsa->codigo_qualificacao_representante_legal, $data['codigo_qualificacao_representante_legal']);
         $this->assertObjectNotHasAttribute('invalid', $qsa);
     }

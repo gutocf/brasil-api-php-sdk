@@ -18,7 +18,7 @@ class BanksServiceTest extends TestCase
 {
     public function testGet(): void
     {
-        $data =loadFixture('Entity/V1/bank');
+        $data = loadFixture('Entity/V1/bank');
         $mock = new MockHandler([new Response(200, [], strval(json_encode($data)))]);
         $handlerStack = HandlerStack::create($mock);
         $bankService = new BanksService(new Adapter(new Client(['handler' => $handlerStack])));
