@@ -9,6 +9,7 @@ use Gutocf\BrasilAPI\Adapter\AdapterInterface;
 use Gutocf\BrasilAPI\Service\V1\BanksService as V1BanksService;
 use Gutocf\BrasilAPI\Service\V1\CepService as V1CepService;
 use Gutocf\BrasilAPI\Service\V1\CnpjService as V1CnpjService;
+use Gutocf\BrasilAPI\Service\V1\DddService as V1DddService;
 use Gutocf\BrasilAPI\Service\V1\HolidaysService as V1HolidayService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
 use GuzzleHttp\Client;
@@ -70,5 +71,15 @@ class BrasilAPI
     public function cnpjV1(): V1CnpjService
     {
         return new V1CnpjService($this->Adapter);
+    }
+
+    /**
+     * Returns a instance of ddd service.
+     *
+     * @return \Gutocf\BrasilAPI\Service\V1\DddService
+     */
+    public function dddV1(): V1DddService
+    {
+        return new V1DddService($this->Adapter);
     }
 }
