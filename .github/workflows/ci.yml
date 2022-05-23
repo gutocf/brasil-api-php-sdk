@@ -38,7 +38,7 @@ jobs:
 
       - name: Run PHPUnit
         run: |
-          vendor/bin/phpunit
+          vendor/bin/phpunit --bootstrap=tests/bootstrap.php
           if [[ ${{ matrix.php-version }} == '7.4' ]]; then
             export CODECOVERAGE=1
             vendor/bin/phpunit --bootstrap=tests/bootstrap.php --coverage-clover=coverage.xml
