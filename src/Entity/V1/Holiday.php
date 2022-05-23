@@ -13,6 +13,11 @@ class Holiday extends FlexibleDataTransferObject
     public ?string $name;
     public ?string $type;
 
+    /**
+     * Constructor.
+     *
+     * @param array<string, mixed> $parameters
+     */
     public function __construct(array $parameters = [])
     {
         $date = DateTime::createFromFormat('Y-m-d', $parameters['date']);

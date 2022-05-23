@@ -11,6 +11,12 @@ class Coordinates extends FlexibleDataTransferObject
     public ?float $latitude;
     public ?float $longitude;
 
+
+    /**
+     * Constructor.
+     *
+     * @param array<string, mixed> $parameters
+     */
     public function __construct(array $parameters = [])
     {
         $parameters['latitude'] = isset($parameters['latitude']) ?
