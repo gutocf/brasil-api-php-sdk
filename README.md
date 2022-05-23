@@ -29,6 +29,7 @@ use Gutocf\BrasilAPI\BrasilAPI;
 
 $BrasilAPI = new BrasilAPI();
 ```
+After that, you can use the service methods as follows:
 
 ### CEP (V1)
 
