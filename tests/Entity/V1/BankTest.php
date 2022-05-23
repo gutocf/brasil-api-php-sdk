@@ -11,31 +11,12 @@ class BankTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = [
-            'ispb' => '00000000',
-            'name' => 'BCO DO BRASIL S.A.',
-            'code' => 1,
-            'fullName' => 'Banco do Brasil S.A.',
-            'invalid' => 'invalid',
-        ];
+        $data = loadFixture('Entity/V1/bank.json');
         $bank = new Bank($data);
         $this->assertEquals($bank->ispb, $data['ispb']);
         $this->assertEquals($bank->name, $data['name']);
         $this->assertEquals($bank->code, $data['code']);
         $this->assertEquals($bank->fullName, $data['fullName']);
-        $this->assertObjectNotHasAttribute('invalid', $bank);
-    }
-
-    public function testPropertiesEmpty(): void
-    {
-        $data = [
-            'invalid' => 'invalid',
-        ];
-        $bank = new Bank($data);
-        $this->assertNull($bank->ispb);
-        $this->assertNull($bank->name);
-        $this->assertNull($bank->code);
-        $this->assertNull($bank->fullName);
         $this->assertObjectNotHasAttribute('invalid', $bank);
     }
 }

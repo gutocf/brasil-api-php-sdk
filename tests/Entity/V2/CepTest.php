@@ -13,24 +13,8 @@ class CepTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = [
-            'cep' => '88045540',
-            'state' => 'SC',
-            'city' => 'Florianópolis',
-            'neighborhood' => 'Saco dos Limões',
-            'street' => 'Travessa da Amizade',
-            'service' => 'correios',
-            'location' => [
-                'type' => 'Point',
-                'coordinates' => [
-                    'longitude' => '-48.5334395',
-                    'latitude' => '-27.6086806'
-                ],
-            ],
-            'invalid' => 'invalid',
-        ];
+        $data = loadFixture('Entity/V2/cep.json');
         $cep = new Cep($data);
-
         $this->assertEquals($cep->cep, $data['cep']);
         $this->assertEquals($cep->state, $data['state']);
         $this->assertEquals($cep->city, $data['city']);

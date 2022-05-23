@@ -12,12 +12,7 @@ class HolidayTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = [
-            'date' => '2021-01-01',
-            'name' => 'Confraternização mundial',
-            'type' => 'national',
-             'invalid' => 'invalid',
-        ];
+        $data = loadFixture('Entity/V1/holiday.json');
         $holiday = new Holiday($data);
         $this->assertInstanceOf(DateTime::class, $holiday->date);
         $this->assertEquals($holiday->name, $data['name']);

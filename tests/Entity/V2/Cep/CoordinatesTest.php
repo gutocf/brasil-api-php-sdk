@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gutocf\BrasilAPI\Tests\Entity;
+namespace Gutocf\BrasilAPI\Tests\Entity\V2\Cep;
 
 use Gutocf\BrasilAPI\Entity\V2\Cep\Coordinates;
 use PHPUnit\Framework\TestCase;
@@ -11,11 +11,7 @@ class CoordinatesTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = [
-            'latitude' => '-26.9244749',
-            'longitude' => '-49.0629788',
-            'invalid' => 'invalid',
-        ];
+        $data = loadFixture('Entity/V2/Cep/coordinates.json');
         $coordinates = new Coordinates($data);
         $this->assertEquals($coordinates->latitude, floatval($data['latitude']));
         $this->assertEquals($coordinates->longitude, floatval($data['longitude']));

@@ -1,0 +1,16 @@
+{
+    "cep": "88045540",
+    "state": "SC",
+    "city": "Florianópolis",
+    "neighborhood": "Saco dos Limões",
+    "street": "Travessa da Amizade",
+    "service": "correios",
+    "location": {
+        "type": "Point",
+        "coordinates": {
+            "longitude": "-48.5334395",
+            "latitude": "-27.6086806"
+        }
+    },
+    "invalid": "invalid"
+}

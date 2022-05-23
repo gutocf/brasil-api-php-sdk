@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gutocf\BrasilAPI\Tests\Entity;
+namespace Gutocf\BrasilAPI\Tests\Entity\V2\Entity;
 
 use Gutocf\BrasilAPI\Entity\V2\Cep\Coordinates;
 use Gutocf\BrasilAPI\Entity\V2\Cep\Location;
@@ -12,14 +12,7 @@ class LocationTest extends TestCase
 {
     public function testProperties(): void
     {
-        $data = [
-            'type' => 'Point',
-            'coordinates' => [
-                'latitude' => '-26.9244749',
-                'longitude' => '-49.0629788',
-            ],
-            'invalid' => 'invalid',
-        ];
+        $data = loadFixture('Entity/V2/Cep/location.json');
         $location = new Location($data);
         $this->assertEquals($location->type, $data['type']);
         $this->assertInstanceOf(Coordinates::class, $location->coordinates);
