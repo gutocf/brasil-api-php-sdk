@@ -12,6 +12,7 @@ class BanksService extends AbstractService
     /**
      * Retrieve a list of banks.
      *
+     * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @return Bank[]
      */
     public function getAll(): array
@@ -27,6 +28,8 @@ class BanksService extends AbstractService
      * Retrieve a bank by its code;
      *
      * @param int $code Bank code
+     * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
+     * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return Bank
      */
     public function get(int $code): Bank

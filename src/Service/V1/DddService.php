@@ -13,8 +13,8 @@ class DddService extends AbstractService
      * Search for a CNPJ
      *
      * @param int $ddd Two digit DDD
-     * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
+     * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return Ddd
      */
     public function get(int $ddd): Ddd
