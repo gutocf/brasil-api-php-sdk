@@ -13,7 +13,8 @@
 PHP SDK for [BrasilAPI](https://brasilapi.com.br/).
 
 ## Requirements
- - PHP 7.4+
+
+ - PHP ^7.4 / ^8.0 / ^8.1
 
 ## Installation
 
@@ -103,3 +104,11 @@ $brands = $BrasilAPI->fipeV1()->getAllBrandsByType(VehicleType::CARS());
 //Gets all brands by vehicle type for a specific table
 $brands = $BrasilAPI->fipeV1()->getAllBrandsByType(VehicleType::CARS(), 123);
 ```
+## Error handling
+
+HTTP errors communicating with the **Brasil API** will throw exceptions as follows:
+|Status code|Exception|
+|--|--|
+| 400 | ```Gutocf\BrasilAPI\Exception\NotFoundException``` |
+| 404 |```Gutocf\BrasilAPI\Exception\BadRequestException```|
+| 500 |```Gutocf\BrasilAPI\Exception\InternalServerErrorException```|
