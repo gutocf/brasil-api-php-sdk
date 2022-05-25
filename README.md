@@ -1,4 +1,5 @@
 
+
 # Brasil API PHP SDK
 
 [![Build Status](https://img.shields.io/github/workflow/status/gutocf/brasil-api-php-sdk/CI/main?style=flat-square)](https://github.com/gutocf/brasil-api-php-sdk/actions?query=workflow%3ACI+branch%3Amain)
@@ -73,4 +74,32 @@ $banks = $BrasilAPI->cnpjV1()->get('39729684000100');
 ```php
 //Gets information about a DDD
 $ddd = $BrasilAPI->dddV1()->get(48);
+```
+
+### Fipe
+
+#### Reference Tables
+```php
+use Gutocf\BrasilAPI\Entity\V1\Fipe\Enum\VehicleType;
+
+//Gets all reference tables
+$referenceTables = $BrasilAPI->fipeV1()->getAllReferenceTables();
+```
+#### Vehicles
+```php
+//Gets vehicle price information by FIPE code
+$vehicles = $BrasilAPI->fipeV1()->getAllVehicleByCode('003281-6');
+//Gets vehicle price information by FIPE code for a specific table
+$vehicles = $BrasilAPI->fipeV1()->getAllVehicleByCode('003281-6', 123);
+```
+#### Brands
+```php
+use Gutocf\BrasilAPI\Entity\V1\Fipe\Enum\VehicleType;
+
+//Gets all brands
+$brands = $BrasilAPI->fipeV1()->getAllBrandsByType();
+//Gets all brands by vehicle type
+$brands = $BrasilAPI->fipeV1()->getAllBrandsByType(VehicleType::CARS());
+//Gets all brands by vehicle type for a specific table
+$brands = $BrasilAPI->fipeV1()->getAllBrandsByType(VehicleType::CARS(), 123);
 ```
