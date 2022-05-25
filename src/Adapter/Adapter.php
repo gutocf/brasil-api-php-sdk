@@ -15,7 +15,7 @@ class Adapter extends AbstractAdapter
     /**
      * @inheritDoc
      */
-    public function get(string $path): array
+    public function get(string $path, array $queryParams = []): array
     {
         return $this->request('GET', $path);
     }

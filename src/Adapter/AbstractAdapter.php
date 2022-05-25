@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Adapter;
 
+use Gutocf\BrasilAPI\Exception\BadRequestException;
 use Gutocf\BrasilAPI\Exception\InternalServerErrorException;
 use Gutocf\BrasilAPI\Exception\NotFoundException;
 use GuzzleHttp\ClientInterface;
@@ -36,11 +37,12 @@ abstract class AbstractAdapter implements AdapterInterface
      *
      * @param string $method HTTP method
      * @param string $path Path to the resource
+     * @param array<string, mixed> $queryParams Query parameters
      * @return mixed[]
      */
-    protected function request(string $method, string $path): array
+    protected function request(string $method, string $path, array $queryParams = []): array
     {
-        $uri = $this->getUri($path);
+        $uri = $this->getUri($path, $queryParams);
         $response = $this->client->request($method, $uri, self::DEFAULT_OPTIONS);
         $this->handleErrors($response);
 
@@ -56,6 +58,10 @@ abstract class AbstractAdapter implements AdapterInterface
      */
     private function handleErrors(ResponseInterface $response): void
     {
+        if ($response->getStatusCode() === 400) {
+            throw new BadRequestException($response);
+        }
+
         if ($response->getStatusCode() === 404) {
             throw new NotFoundException($response);
         }
@@ -83,12 +89,14 @@ abstract class AbstractAdapter implements AdapterInterface
      *
      * @param string $path
      * @return UriInterface
+     * @param array<string, mixed> $queryParams Query parameters
      */
-    private function getUri(string $path): UriInterface
+    private function getUri(string $path, array $queryParams = []): UriInterface
     {
         return (new Uri())
             ->withScheme(self::SCHEME)
             ->withHost(self::HOST)
-            ->withPath($path);
+            ->withPath($path)
+            ->withQuery(http_build_query($queryParams));
     }
 }
