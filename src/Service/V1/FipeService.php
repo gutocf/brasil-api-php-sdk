@@ -61,7 +61,7 @@ class FipeService extends AbstractService
     public function getAllBrandsByType(?VehicleType $vehicleType = null, ?int $referenceTableId = null): array
     {
         $vehicleTypeParam = $vehicleType ? $vehicleType->getValue() : null;
-        $path = sprintf('/api/feriados/v1/%s', $vehicleTypeParam);
+        $path = sprintf('/api/fipe/marcas/v1/%s', $vehicleTypeParam);
         $queryParams = ['tabela_referencia' => $referenceTableId];
         $data = $this->adapter->get($path, $queryParams);
 
