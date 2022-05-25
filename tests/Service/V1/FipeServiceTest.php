@@ -34,7 +34,7 @@ class FipeServiceTest extends TestCase
         $this->assertEquals($vehicles[0]->modelo, $data[0]['modelo']);
     }
 
-    public function testGetReferenceTables(): void
+    public function testgetAllReferenceTables(): void
     {
         $data = loadFixture('Entity/V1/Fipe/reference-tables');
         $mock = new MockHandler([
@@ -42,7 +42,7 @@ class FipeServiceTest extends TestCase
         ]);
         $handlerStack = HandlerStack::create($mock);
         $fipeService = new FipeService(new Adapter(new Client(['handler' => $handlerStack])));
-        $referenceTables = $fipeService->getReferenceTables();
+        $referenceTables = $fipeService->getAllReferenceTables();
         $this->assertInstanceOf(ReferenceTable::class, $referenceTables[0]);
         $this->assertEquals($referenceTables[0]->codigo, $data[0]['codigo']);
     }

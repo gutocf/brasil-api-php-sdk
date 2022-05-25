@@ -39,7 +39,7 @@ class FipeService extends AbstractService
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @return \Gutocf\BrasilAPI\Entity\V1\Fipe\ReferenceTable[]
      */
-    public function getReferenceTables(): array
+    public function getAllReferenceTables(): array
     {
         $data = $this->adapter->get('/api/fipe/tabelas/v1');
 
