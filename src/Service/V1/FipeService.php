@@ -24,7 +24,7 @@ class FipeService extends AbstractService
      */
     public function getAllVehicleByCode(string $code, int $referenceTableId = null): array
     {
-        $path = sprintf('/api/feriados/v1/%s', $code);
+        $path = sprintf('/api/fipe/preco/v1/%s', $code);
         $queryParams = ['tabela_referencia' => $referenceTableId];
         $data = $this->adapter->get($path, $queryParams);
 
