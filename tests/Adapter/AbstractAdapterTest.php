@@ -18,7 +18,7 @@ class AbstractAdapterTest extends TestCase
     public function testGetUri(): void
     {
         $adapter = $this->getMockForAbstractClass(AbstractAdapter::class, [new Client()]);
-        $reflection = new \ReflectionClass(get_class($adapter));
+        $reflection = new \ReflectionClass($adapter);
         $method = $reflection->getMethod('getUri');
         $method->setAccessible(true);
         /** @var \GuzzleHttp\Psr7\Uri $uri */
@@ -36,20 +36,20 @@ class AbstractAdapterTest extends TestCase
     {
         $adapter = $this->getMockForAbstractClass(AbstractAdapter::class, [new Client()]);
 
-        $reflection = new \ReflectionClass(get_class($adapter));
+        $reflection = new \ReflectionClass($adapter);
         $method = $reflection->getMethod('handleErrors');
         $method->setAccessible(true);
 
         $this->expectException(BadRequestException::class);
-        $body = json_encode(['name' => 'Bad Request']);
+        $body = '{"name":"Bad Request"}';
         $method->invoke($adapter, new Response(400, [], $body));
 
         $this->expectException(NotFoundException::class);
-        $body = json_encode(['name' => 'Not Found']);
+        $body = '{"name":"Not Found"}';
         $method->invoke($adapter, new Response(404, [], $body));
 
         $this->expectException(InternalServerErrorException::class);
-        $body = json_encode(['name' => 'Internal Server Error']);
+        $body = '{"name":"Internal Server Error"}';
         $method->invoke($adapter, new Response(500, [], $body));
     }
 }

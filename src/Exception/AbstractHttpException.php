@@ -30,7 +30,7 @@ abstract class AbstractHttpException extends Exception
      *
      * @return \Gutocf\BrasilAPI\Entity\ApiError
      */
-    public final function getOriginalMessage(): ApiError
+    final public function getOriginalMessage(): ApiError
     {
         return $this->originalMessage;
     }

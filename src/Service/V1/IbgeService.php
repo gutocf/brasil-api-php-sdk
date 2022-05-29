@@ -16,7 +16,7 @@ class IbgeService extends AbstractService
      * @param string $siglaUf The state initials
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
-     * @return array<Gutocf\BrasilAPI\Entity\V1\Ibge\City>
+     * @return array<\Gutocf\BrasilAPI\Entity\V1\Ibge\City>
      */
     public function getCitiesByState(string $siglaUf): array
     {
@@ -47,7 +47,7 @@ class IbgeService extends AbstractService
     /**
      * Gets information about a state by its initials.
      *
-     * @param int|string $siglaUf Code or initials of the state
+     * @param int|string $code Code or initials of the state
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return \Gutocf\BrasilAPI\Entity\V1\Ibge\State
