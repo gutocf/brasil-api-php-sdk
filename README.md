@@ -77,7 +77,7 @@ $banks = $BrasilAPI->cnpjV1()->get('39729684000100');
 $ddd = $BrasilAPI->dddV1()->get(48);
 ```
 
-### Fipe
+### FIPE
 
 #### Reference Tables
 ```php
@@ -104,6 +104,24 @@ $brands = $BrasilAPI->fipeV1()->getAllBrandsByType(VehicleType::CARS());
 //Gets all brands by vehicle type for a specific table
 $brands = $BrasilAPI->fipeV1()->getAllBrandsByType(VehicleType::CARS(), 123);
 ```
+
+### IBGE
+
+####  Cities by State
+```php
+$cities = $BrasilAPI->ibgeV1()->getCitiesByState('SC');
+```
+####  States
+```php
+$states = $BrasilAPI->ibgeV1()->getAllStates();
+```
+####  State by initials or code
+```php
+$state = $BrasilAPI->ibgeV1()->getState('sc');
+//OR
+$state = $BrasilAPI->ibgeV1()->getState(42);
+```
+
 ## Error handling
 
 HTTP errors communicating with the **Brasil API** will throw exceptions as follows:
