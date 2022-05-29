@@ -4,9 +4,14 @@
         "caminhoes",
         "cnpj",
         "Cnpj",
+        "codigo",
         "fipe",
         "Fipe",
+        "ibge",
+        "Ibge",
         "ispb",
+        "municipios",
+        "regiao",
         "Spatie"
     ]
 }
