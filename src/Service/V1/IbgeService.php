@@ -47,12 +47,12 @@ class IbgeService extends AbstractService
     /**
      * Gets information about a state by its initials.
      *
-     * @param int|string $code Code or initials of the state
+     * @param mixed $code Code or initials of the state
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return \Gutocf\BrasilAPI\Entity\V1\Ibge\State
      */
-    public function getState(int|string $code): State
+    public function getState($code): State
     {
         $path = sprintf('/api/ibge/uf/v1/%s', $code);
         $data = $this->adapter->get($path);
