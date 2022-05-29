@@ -34,6 +34,12 @@
         }
     },
     "scripts": {
+        "check":[
+            "@test",
+            "@phpcs",
+            "@phpstan"
+        ],
+        "test": "phpunit --colors=always --bootstrap tests/bootstrap.php tests/",
         "phpcs": "phpcs --standard=PSR12 --colors -p src/ tests/",
         "phpcbf": "phpcbf --standard=PSR12 --colors -p src/ tests/",
         "phpstan": "vendor/bin/phpstan",
