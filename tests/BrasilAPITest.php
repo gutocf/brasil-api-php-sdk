@@ -11,6 +11,7 @@ use Gutocf\BrasilAPI\Service\V1\CnpjService as V1CnpjService;
 use Gutocf\BrasilAPI\Service\V1\DddService as V1DddService;
 use Gutocf\BrasilAPI\Service\V1\FipeService as V1FipeService;
 use Gutocf\BrasilAPI\Service\V1\HolidaysService as V1HolidaysService;
+use Gutocf\BrasilAPI\Service\V1\IbgeService as V1IbgeService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
 use PHPUnit\Framework\TestCase;
 
@@ -63,5 +64,11 @@ class BrasilAPITest extends TestCase
     {
         $service = $this->BrasilAPI->fipeV1();
         $this->assertInstanceOf(V1FipeService::class, $service);
+    }
+
+    public function testIbgeV1(): void
+    {
+        $service = $this->BrasilAPI->ibgeV1();
+        $this->assertInstanceOf(V1IbgeService::class, $service);
     }
 }

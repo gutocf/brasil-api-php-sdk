@@ -1,0 +1,6 @@
+{
+    "message": "CNPJ 91.879.972/0001-53 não encontrado.",
+    "type": "not_found",
+    "name": "NotFoundError",
+    "invalid": "invalid"
+}

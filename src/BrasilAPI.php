@@ -12,6 +12,7 @@ use Gutocf\BrasilAPI\Service\V1\CnpjService as V1CnpjService;
 use Gutocf\BrasilAPI\Service\V1\DddService as V1DddService;
 use Gutocf\BrasilAPI\Service\V1\FipeService as V1FipeService;
 use Gutocf\BrasilAPI\Service\V1\HolidaysService as V1HolidayService;
+use Gutocf\BrasilAPI\Service\V1\IbgeService as V1IbgeService;
 use Gutocf\BrasilAPI\Service\V2\CepService as V2CepService;
 use GuzzleHttp\Client;
 
@@ -92,5 +93,14 @@ class BrasilAPI
     public function fipeV1(): V1FipeService
     {
         return new V1FipeService($this->Adapter);
+    }
+    /**
+     * Returns a instance of ibge service.
+     *
+     * @return \Gutocf\BrasilAPI\Service\V1\IbgeService
+     */
+    public function ibgeV1(): V1IbgeService
+    {
+        return new V1IbgeService($this->Adapter);
     }
 }
