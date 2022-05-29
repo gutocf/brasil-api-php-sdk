@@ -38,10 +38,17 @@ class IbgeServiceTest extends TestCase
     public function testGetState(): void
     {
         $data = loadFixture('Entity/V1/Ibge/states');
-        $mock = new MockHandler([new Response(200, [], strval(json_encode($data)))]);
+        $mock = new MockHandler([
+            new Response(200, [], strval(json_encode($data))),
+            new Response(200, [], strval(json_encode($data))),
+        ]);
         $handlerStack = HandlerStack::create($mock);
         $ibgeService = new IbgeService(new Adapter(new Client(['handler' => $handlerStack])));
+
         $state = $ibgeService->getState('sc');
+        $this->assertInstanceOf(State::class, $state);
+
+        $state = $ibgeService->getState(42);
         $this->assertInstanceOf(State::class, $state);
     }
 }
