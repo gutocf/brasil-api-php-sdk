@@ -35,6 +35,19 @@ class IbgeServiceTest extends TestCase
         $ibgeService->getCitiesByState('invalid');
     }
 
+    public function testGetAllStates(): void
+    {
+        $data = loadFixture('Entity/V1/Ibge/states');
+        $mock = new MockHandler([
+            new Response(200, [], strval(json_encode($data))),
+        ]);
+        $handlerStack = HandlerStack::create($mock);
+        $ibgeService = new IbgeService(new Adapter(new Client(['handler' => $handlerStack])));
+
+        $states = $ibgeService->getAllStates();
+        $this->assertInstanceOf(State::class, $states[0]);
+    }
+
     public function testGetState(): void
     {
         $data = loadFixture('Entity/V1/Ibge/states');
