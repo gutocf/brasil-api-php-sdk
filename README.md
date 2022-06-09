@@ -14,7 +14,7 @@ PHP SDK for [BrasilAPI](https://brasilapi.com.br/).
 
 ## Requirements
 
- - >=7.4 <=8.1
+ - PHP >=7.4 <=8.1
 
 ## Installation
 
