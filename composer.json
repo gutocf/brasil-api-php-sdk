@@ -34,7 +34,7 @@
         }
     },
     "scripts": {
-        "check":[
+        "check": [
             "@test",
             "@phpcs",
             "@phpstan"
@@ -42,7 +42,7 @@
         "test": "phpunit --colors=always --bootstrap tests/bootstrap.php tests/",
         "phpcs": "phpcs --standard=PSR12 --colors -p src/ tests/",
         "phpcbf": "phpcbf --standard=PSR12 --colors -p src/ tests/",
-        "phpstan": "vendor/bin/phpstan",
+        "phpstan": "vendor/bin/phpstan --xdebug",
         "coverage": "phpunit --colors=always --bootstrap=tests/bootstrap.php --configuration=phpunit.xml --coverage-html=tmp/_reports/coverage/"
     }
 }
