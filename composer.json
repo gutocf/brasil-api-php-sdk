@@ -12,7 +12,7 @@
         "sdk"
     ],
     "require": {
-        "php": ">=7.4",
+        "php": "^8.0",
         "guzzlehttp/guzzle": "^7.4",
         "myclabs/php-enum": "^1.8",
         "spatie/data-transfer-object": "3.9"
