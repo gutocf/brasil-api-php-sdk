@@ -59,8 +59,10 @@ class Cnpj extends DataTransferObject
     public ?string $descricao_situacao_cadastral;
     public ?string $descricao_tipo_de_logradouro;
     public ?string $descricao_motivo_situacao_cadastral;
+    /** @var \Gutocf\BrasilAPI\Entity\V1\Cnpj\Cnae[] */
     #[CastWith(ArrayCaster::class, Cnae::class)]
     public ?array $cnaes_secundarios;
+    /** @var \Gutocf\BrasilAPI\Entity\V1\Cnpj\Qsa[] */
     #[CastWith(ArrayCaster::class, Qsa::class)]
     public ?array $qsa;
 }
