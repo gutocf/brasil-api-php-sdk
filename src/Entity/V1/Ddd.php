@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V1;
 
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Ddd extends FlexibleDataTransferObject
+class Ddd extends DataTransferObject
 {
     public ?string $state;
 

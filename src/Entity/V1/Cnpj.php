@@ -5,11 +5,16 @@ declare(strict_types=1);
 namespace Gutocf\BrasilAPI\Entity\V1;
 
 use DateTime;
+use Gutocf\BrasilAPI\Caster\DateTimeCaster;
 use Gutocf\BrasilAPI\Entity\V1\Cnpj\Cnae;
 use Gutocf\BrasilAPI\Entity\V1\Cnpj\Qsa;
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Attributes\DefaultCast;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Cnpj extends FlexibleDataTransferObject
+#[DefaultCast(DateTime::class, DateTimeCaster::class)]
+class Cnpj extends DataTransferObject
 {
     public ?string $uf;
     public ?string $cep;
@@ -54,27 +59,8 @@ class Cnpj extends FlexibleDataTransferObject
     public ?string $descricao_situacao_cadastral;
     public ?string $descricao_tipo_de_logradouro;
     public ?string $descricao_motivo_situacao_cadastral;
-    /**
-     * @var \Gutocf\BrasilAPI\Entity\V1\Cnpj\Cnae[]
-     */
+    #[CastWith(ArrayCaster::class, Cnae::class)]
     public ?array $cnaes_secundarios;
-    /**
-     * @var \Gutocf\BrasilAPI\Entity\V1\Cnpj\Qsa[]
-     */
+    #[CastWith(ArrayCaster::class, Qsa::class)]
     public ?array $qsa;
-
-    /**
-     * Constructor.
-     *
-     * @param array<string, mixed> $parameters
-     */
-    public function __construct(array $parameters = [])
-    {
-        array_walk($parameters, function (&$value, $property) {
-            if (strpos($property, 'data') === 0 && !is_null($value)) {
-                $value = DateTime::createFromFormat('Y-m-d', $value);
-            }
-        });
-        parent::__construct($parameters);
-    }
 }

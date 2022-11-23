@@ -19,15 +19,18 @@ class BanksService extends AbstractService
     {
         $data = $this->adapter->get('/api/banks/v1/');
 
-        return array_map(function ($data) {
-            return new Bank($data);
-        }, $data);
+        return array_map(
+            function ($data) {
+                return new Bank($data);
+            },
+            $data
+        );
     }
 
     /**
      * Retrieve a bank by its code;
      *
-     * @param int $code Bank code
+     * @param  int $code Bank code
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return Bank

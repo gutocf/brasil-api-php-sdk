@@ -15,8 +15,8 @@ class FipeService extends AbstractService
     /**
      * Retrieve price for a vehicle.
      *
-     * @param string $code Fipe code of the vehicle
-     * @param int|null $referenceTableId The reference table id
+     * @param  string   $code             Fipe code of the vehicle
+     * @param  int|null $referenceTableId The reference table id
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\BadRequestException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
@@ -28,9 +28,12 @@ class FipeService extends AbstractService
         $queryParams = ['tabela_referencia' => $referenceTableId];
         $data = $this->adapter->get($path, $queryParams);
 
-        return array_map(function ($data) {
-            return new Vehicle($data);
-        }, $data);
+        return array_map(
+            function ($data) {
+                return new Vehicle($data);
+            },
+            $data
+        );
     }
 
     /**
@@ -43,16 +46,19 @@ class FipeService extends AbstractService
     {
         $data = $this->adapter->get('/api/fipe/tabelas/v1');
 
-        return array_map(function ($data) {
-            return new ReferenceTable($data);
-        }, $data);
+        return array_map(
+            function ($data) {
+                return new ReferenceTable($data);
+            },
+            $data
+        );
     }
 
     /**
      * Retrieve a list of holidays for a given year.
      *
-     * @param \Gutocf\BrasilAPI\Entity\V1\Fipe\Enum\VehicleType|null $vehicleType The vehicle type
-     * @param int|null $referenceTableId The reference table id
+     * @param  \Gutocf\BrasilAPI\Entity\V1\Fipe\Enum\VehicleType|null $vehicleType      The vehicle type
+     * @param  int|null                                               $referenceTableId The reference table id
      * @throws \Gutocf\BrasilAPI\Exception\BadRequestException
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
@@ -65,8 +71,11 @@ class FipeService extends AbstractService
         $queryParams = ['tabela_referencia' => $referenceTableId];
         $data = $this->adapter->get($path, $queryParams);
 
-        return array_map(function ($data) {
-            return new Brand($data);
-        }, $data);
+        return array_map(
+            function ($data) {
+                return new Brand($data);
+            },
+            $data
+        );
     }
 }

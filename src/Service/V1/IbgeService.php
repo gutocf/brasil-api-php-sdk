@@ -13,7 +13,7 @@ class IbgeService extends AbstractService
     /**
      * Returns the list of cities by state.
      *
-     * @param string $siglaUf The state initials
+     * @param  string $siglaUf The state initials
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return array<\Gutocf\BrasilAPI\Entity\V1\Ibge\City>
@@ -23,9 +23,12 @@ class IbgeService extends AbstractService
         $path = sprintf('/api/ibge/municipios/v1/%s', $siglaUf);
         $data = $this->adapter->get($path);
 
-        return array_map(function (array $data) {
-            return new City($data);
-        }, $data);
+        return array_map(
+            function (array $data) {
+                return new City($data);
+            },
+            $data
+        );
     }
 
     /**
@@ -39,15 +42,18 @@ class IbgeService extends AbstractService
     {
         $data = $this->adapter->get('/api/ibge/uf/v1/');
 
-        return array_map(function (array $data) {
-            return new State($data);
-        }, $data);
+        return array_map(
+            function (array $data) {
+                return new State($data);
+            },
+            $data
+        );
     }
 
     /**
      * Gets information about a state by its initials.
      *
-     * @param mixed $code Code or initials of the state
+     * @param  mixed $code Code or initials of the state
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return \Gutocf\BrasilAPI\Entity\V1\Ibge\State

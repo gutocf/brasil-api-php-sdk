@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V1\Ibge;
 
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Region extends FlexibleDataTransferObject
+class Region extends DataTransferObject
 {
     public ?int $id;
     public ?string $sigla;

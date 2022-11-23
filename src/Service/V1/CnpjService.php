@@ -12,7 +12,7 @@ class CnpjService extends AbstractService
     /**
      * Search for a CNPJ
      *
-     * @param string $cnpj
+     * @param  string $cnpj
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return Cnpj

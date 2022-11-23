@@ -5,24 +5,14 @@ declare(strict_types=1);
 namespace Gutocf\BrasilAPI\Entity\V1;
 
 use DateTime;
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Gutocf\BrasilAPI\Caster\DateTimeCaster;
+use Spatie\DataTransferObject\Attributes\DefaultCast;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Holiday extends FlexibleDataTransferObject
+#[DefaultCast(DateTime::class, DateTimeCaster::class)]
+class Holiday extends DataTransferObject
 {
     public ?DateTime $date;
     public ?string $name;
     public ?string $type;
-
-    /**
-     * Constructor.
-     *
-     * @param array<string, mixed> $parameters
-     */
-    public function __construct(array $parameters = [])
-    {
-        $date = DateTime::createFromFormat('Y-m-d', $parameters['date']);
-        $parameters['date'] = $date ? $date : null;
-
-        parent::__construct($parameters);
-    }
 }

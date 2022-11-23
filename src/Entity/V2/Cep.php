@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Gutocf\BrasilAPI\Entity\V2;
 
 use Gutocf\BrasilAPI\Entity\V2\Cep\Location;
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Cep extends FlexibleDataTransferObject
+class Cep extends DataTransferObject
 {
     public ?string $cep;
     public ?string $state;

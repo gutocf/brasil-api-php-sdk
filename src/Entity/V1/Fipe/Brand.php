@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V1\Fipe;
 
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Brand extends FlexibleDataTransferObject
+class Brand extends DataTransferObject
 {
     public ?string $name;
     public ?string $value;

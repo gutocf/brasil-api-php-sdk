@@ -10,11 +10,12 @@ use Gutocf\BrasilAPI\Service\AbstractService;
 class CepService extends AbstractService
 {
     /**
-     * Search for a Cep.
+     * Search for a CEP.
      *
-     * @param string $cep
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
+     *
+     * @param string $cep CEP
      * @return Cep
      */
     public function get(string $cep): Cep

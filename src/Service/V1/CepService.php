@@ -12,7 +12,7 @@ class CepService extends AbstractService
     /**
      * Search for a Cep.
      *
-     * @param string $cep
+     * @param  string $cep
      * @throws \Gutocf\BrasilAPI\Exception\InternalServerErrorException
      * @throws \Gutocf\BrasilAPI\Exception\NotFoundException
      * @return Cep

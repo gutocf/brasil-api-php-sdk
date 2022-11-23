@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V1\Fipe;
 
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Vehicle extends FlexibleDataTransferObject
+class Vehicle extends DataTransferObject
 {
     public ?float $valor;
     public ?string $marca;

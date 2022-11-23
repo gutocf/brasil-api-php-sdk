@@ -35,9 +35,9 @@ abstract class AbstractAdapter implements AdapterInterface
     /**
      * Performs a request to the API.
      *
-     * @param string $method HTTP method
-     * @param string $path Path to the resource
-     * @param array<string, mixed> $queryParams Query parameters
+     * @param  string               $method      HTTP method
+     * @param  string               $path        Path to the resource
+     * @param  array<string, mixed> $queryParams Query parameters
      * @return mixed[]
      */
     protected function request(string $method, string $path, array $queryParams = []): array
@@ -52,7 +52,7 @@ abstract class AbstractAdapter implements AdapterInterface
     /**
      * Handles request errors.
      *
-     * @param ResponseInterface $response
+     * @param  ResponseInterface $response
      * @throws NotFoundException
      * @return void
      */
@@ -87,9 +87,9 @@ abstract class AbstractAdapter implements AdapterInterface
     /**
      * Creates a URI from a path.
      *
-     * @param string $path
+     * @param  string               $path
      * @return UriInterface
-     * @param array<string, mixed> $queryParams Query parameters
+     * @param  array<string, mixed> $queryParams Query parameters
      */
     private function getUri(string $path, array $queryParams = []): UriInterface
     {

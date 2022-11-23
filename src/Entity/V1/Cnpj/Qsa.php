@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Gutocf\BrasilAPI\Entity\V1\Cnpj;
 
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
-class Qsa extends FlexibleDataTransferObject
+class Qsa extends DataTransferObject
 {
     public ?string $pais;
     public ?string $nome_socio;
