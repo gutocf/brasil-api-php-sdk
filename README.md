@@ -2,7 +2,7 @@
 
 # Brasil API PHP SDK
 
-[![Build Status](https://img.shields.io/github/workflow/status/gutocf/brasil-api-php-sdk/CI/main?style=flat-square)](https://github.com/gutocf/brasil-api-php-sdk/actions?query=workflow%3ACI+branch%3Amain)
+[![CI](https://github.com/gutocf/brasil-api-php-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/gutocf/brasil-api-php-sdk/actions/workflows/ci.yml)
 [![Coverage Status](https://img.shields.io/codecov/c/github/gutocf/brasil-api-php-sdk.svg?style=flat-square)](https://codecov.io/github/gutocf/brasil-api-php-sdk)
 [![PHPStan](https://img.shields.io/badge/PHPStan-Level%207-brightgreen.svg?style=flat-square&logo=php)](https://shields.io/#/)
 [![PHP Version Require](http://poser.pugx.org/gutocf/brasil-api-php-sdk/require/php)](https://packagist.org/packages/gutocf/brasil-api-php-sdk)
