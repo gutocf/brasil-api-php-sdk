@@ -13,6 +13,6 @@ class BrandTest extends TestCase
         $brand = new Brand($data);
         $this->assertEquals($brand->name, $data['nome']);
         $this->assertEquals($brand->value, $data['valor']);
-        $this->assertObjectNotHasAttribute('invalid', $brand);
+        $this->assertObjectNotHasProperty('invalid', $brand);
     }
 }

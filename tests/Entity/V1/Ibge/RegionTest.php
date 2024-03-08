@@ -16,6 +16,6 @@ class RegionTest extends TestCase
         $this->assertEquals($region->id, $data['id']);
         $this->assertEquals($region->sigla, $data['sigla']);
         $this->assertEquals($region->nome, $data['nome']);
-        $this->assertObjectNotHasAttribute('invalid', $region);
+        $this->assertObjectNotHasProperty('invalid', $region);
     }
 }

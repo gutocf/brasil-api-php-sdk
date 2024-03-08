@@ -16,7 +16,7 @@ class LocationTest extends TestCase
         $location = new Location($data);
         $this->assertEquals($location->type, $data['type']);
         $this->assertInstanceOf(Coordinates::class, $location->coordinates);
-        $this->assertObjectNotHasAttribute('invalid', $location);
+        $this->assertObjectNotHasProperty('invalid', $location);
     }
 
     public function testPropertiesEmpty(): void
@@ -25,6 +25,6 @@ class LocationTest extends TestCase
         $location = new Location($data);
         $this->assertNull($location->type);
         $this->assertNull($location->coordinates);
-        $this->assertObjectNotHasAttribute('invalid', $location);
+        $this->assertObjectNotHasProperty('invalid', $location);
     }
 }

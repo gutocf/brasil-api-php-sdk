@@ -16,6 +16,6 @@ class ApiErrorTest extends TestCase
         $this->assertEquals($apiError->message, $data['message']);
         $this->assertEquals($apiError->name, $data['name']);
         $this->assertEquals($apiError->type, $data['type']);
-        $this->assertObjectNotHasAttribute('invalid', $apiError);
+        $this->assertObjectNotHasProperty('invalid', $apiError);
     }
 }

@@ -28,7 +28,7 @@ class DddServiceTest extends TestCase
         $this->assertEquals($ddd->state, $data['state']);
         $this->assertIsArray($ddd->cities);
         $this->assertEquals($ddd->cities[0], $data['cities'][0]);
-        $this->assertObjectNotHasAttribute('invalid', $ddd);
+        $this->assertObjectNotHasProperty('invalid', $ddd);
     }
 
     public function testGetNotFound(): void

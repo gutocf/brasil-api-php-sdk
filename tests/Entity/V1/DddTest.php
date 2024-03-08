@@ -15,6 +15,6 @@ class DddTest extends TestCase
         $ddd = new Ddd($data);
         $this->assertEquals($ddd->state, $data['state']);
         $this->assertIsArray($ddd->cities);
-        $this->assertObjectNotHasAttribute('invalid', $ddd);
+        $this->assertObjectNotHasProperty('invalid', $ddd);
     }
 }

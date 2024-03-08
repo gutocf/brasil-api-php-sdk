@@ -13,6 +13,6 @@ class ReferenceTableTest extends TestCase
         $referenceTable = new ReferenceTable($data);
         $this->assertEquals($referenceTable->codigo, $data['codigo']);
         $this->assertEquals($referenceTable->mes, $data['mes']);
-        $this->assertObjectNotHasAttribute('invalid', $referenceTable);
+        $this->assertObjectNotHasProperty('invalid', $referenceTable);
     }
 }

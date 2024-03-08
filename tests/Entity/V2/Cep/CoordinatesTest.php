@@ -15,7 +15,7 @@ class CoordinatesTest extends TestCase
         $coordinates = new Coordinates($data);
         $this->assertEquals($coordinates->latitude, floatval($data['latitude']));
         $this->assertEquals($coordinates->longitude, floatval($data['longitude']));
-        $this->assertObjectNotHasAttribute('invalid', $coordinates);
+        $this->assertObjectNotHasProperty('invalid', $coordinates);
     }
 
     public function testPropertiesEmpty(): void
@@ -24,6 +24,6 @@ class CoordinatesTest extends TestCase
         $coordinates = new Coordinates($data);
         $this->assertNull($coordinates->latitude);
         $this->assertNull($coordinates->longitude);
-        $this->assertObjectNotHasAttribute('invalid', $coordinates);
+        $this->assertObjectNotHasProperty('invalid', $coordinates);
     }
 }

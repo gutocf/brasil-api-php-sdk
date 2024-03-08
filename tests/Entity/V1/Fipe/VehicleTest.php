@@ -21,6 +21,6 @@ class VehicleTest extends TestCase
         $this->assertEquals($vehicle->tipoVeiculo, $data['tipoVeiculo']);
         $this->assertEquals($vehicle->siglaCombustivel, $data['siglaCombustivel']);
         $this->assertEquals($vehicle->dataConsulta, $data['dataConsulta']);
-        $this->assertObjectNotHasAttribute('invalid', $vehicle);
+        $this->assertObjectNotHasProperty('invalid', $vehicle);
     }
 }

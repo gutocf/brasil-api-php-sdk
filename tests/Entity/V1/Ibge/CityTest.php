@@ -15,6 +15,6 @@ class CityTest extends TestCase
         $city = new City($data);
         $this->assertEquals($city->nome, $data['nome']);
         $this->assertEquals($city->codigo_ibge, $data['codigo_ibge']);
-        $this->assertObjectNotHasAttribute('invalid', $city);
+        $this->assertObjectNotHasProperty('invalid', $city);
     }
 }

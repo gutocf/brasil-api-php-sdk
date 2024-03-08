@@ -19,6 +19,6 @@ class CepTest extends TestCase
         $this->assertEquals($cep->neighborhood, $data['neighborhood']);
         $this->assertEquals($cep->street, $data['street']);
         $this->assertEquals($cep->service, $data['service']);
-        $this->assertObjectNotHasAttribute('invalid', $cep);
+        $this->assertObjectNotHasProperty('invalid', $cep);
     }
 }

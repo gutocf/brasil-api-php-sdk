@@ -15,6 +15,6 @@ class CnaeTest extends TestCase
         $cnae = new Cnae($data);
         $this->assertEquals($cnae->codigo, $data['codigo']);
         $this->assertEquals($cnae->descricao, $data['descricao']);
-        $this->assertObjectNotHasAttribute('invalid', $cnae);
+        $this->assertObjectNotHasProperty('invalid', $cnae);
     }
 }

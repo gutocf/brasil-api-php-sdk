@@ -23,6 +23,6 @@ class CepTest extends TestCase
         $this->assertEquals($cep->service, $data['service']);
         $this->assertInstanceOf(Location::class, $cep->location);
         $this->assertInstanceOf(Coordinates::class, $cep->location->coordinates);
-        $this->assertObjectNotHasAttribute('invalid', $cep);
+        $this->assertObjectNotHasProperty('invalid', $cep);
     }
 }

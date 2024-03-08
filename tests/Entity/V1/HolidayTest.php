@@ -17,6 +17,6 @@ class HolidayTest extends TestCase
         $this->assertInstanceOf(DateTime::class, $holiday->date);
         $this->assertEquals($holiday->name, $data['name']);
         $this->assertEquals($holiday->type, $data['type']);
-        $this->assertObjectNotHasAttribute('invalid', $holiday);
+        $this->assertObjectNotHasProperty('invalid', $holiday);
     }
 }

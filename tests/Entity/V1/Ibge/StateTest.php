@@ -18,6 +18,6 @@ class StateTest extends TestCase
         $this->assertEquals($state->sigla, $data['sigla']);
         $this->assertEquals($state->nome, $data['nome']);
         $this->assertInstanceOf(Region::class, $state->regiao);
-        $this->assertObjectNotHasAttribute('invalid', $state);
+        $this->assertObjectNotHasProperty('invalid', $state);
     }
 }

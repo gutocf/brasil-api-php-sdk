@@ -63,6 +63,6 @@ class CnpjTest extends TestCase
         $this->assertNull($cnpj->data_exclusao_do_mei);
         $this->assertNull($cnpj->data_exclusao_do_simples);
         $this->assertNull($cnpj->data_situacao_especial);
-        $this->assertObjectNotHasAttribute('invalid', $cnpj);
+        $this->assertObjectNotHasProperty('invalid', $cnpj);
     }
 }
